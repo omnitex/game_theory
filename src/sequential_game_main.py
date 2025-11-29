@@ -2,7 +2,7 @@ import argparse
 from sequential_game_agent import Agent, Game
 from tqdm import tqdm
 import json
-
+import os
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
@@ -16,6 +16,9 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     result_save_dir = f'result/single_round/{args.model}/{args.game}_{args.personality}_negotation_{args.max_negotiation_round}.json'
+
+    # Create directory structure if it doesn't exist
+    os.makedirs(os.path.dirname(result_save_dir), exist_ok=True)
 
     args.system_prompt = f'You are a {args.personality} assistant that carefully answer the question.'
     decisions = []
