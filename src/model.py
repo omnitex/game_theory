@@ -1,10 +1,12 @@
 import anthropic
 import time
 from openai import OpenAI
+import google.generativeai as genai
 
 ####### data generation close-source models #######
 claude_key =  None
 open_ai_key = None
+gemini_key = None
 
 def call_api(model, message, system_prompt):
     if 'sonnet' in model:
@@ -76,6 +78,20 @@ def call_api(model, message, system_prompt):
             temperature=1.0,
             )
         return response.choices[0].message.content
+    elif 'gemini' in model:
+        genai.configure(api_key=gemini_key)
+        gemini_model = genai.GenerativeModel(
+            model_name="gemini-2.5-flash",
+            system_instruction=system_prompt
+        )
+        response = gemini_model.generate_content(
+            message,
+            generation_config=genai.types.GenerationConfig(
+                temperature=1.0,
+                max_output_tokens=2000,
+            )
+        )
+        return response.text
 
 def call_anthropic_api(message, system_prompt):
     api_client = anthropic.Anthropic(

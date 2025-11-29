@@ -49,7 +49,7 @@ There are 3 parameters to set:
 ```
 game: prisoner_dilemma, stag_hunt, battle_of_sexes, duopolistic_competition, wait_go
 max_negotiation_round: any integer. If you choose 0, then there is no negotiation before any action
-model: opus, sonnet, o1, gpt-4o
+model: opus, sonnet, o1, gpt-4o, gemini
 ```
 
 ### Sequential Game without Workflow
@@ -60,7 +60,7 @@ There are 3 parameters to set:
 ```
 game: escalation_game, draco, hot_cold_game, monopoly, trigame
 max_negotiation_round: any integer. If you choose 0, then there is no negotiation before any action
-model: opus, sonnet, o1, gpt-4o
+model: opus, sonnet, o1, gpt-4o, gemini
 ```
 
 ### Simultaneous Game and Sequential Game with Workflow
@@ -72,7 +72,7 @@ There are 4 parameters to set:
 game: prisoner_dilemma, stag_hunt, battle_of_sexes, duopolistic_competition, wait_go, escalation_game, draco, hot_cold_game, monopoly, trigame
 game_type: simultaneous, sequential
 max_negotiation_round: any integer. If you choose 0, then there is no negotiation before any action
-model: opus, sonnet, o1, gpt-4o
+model: opus, sonnet, o1, gpt-4o, gemini
 ```
 
 ## Experiment for Incomplete-information Games
